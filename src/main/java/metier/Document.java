@@ -1,18 +1,16 @@
 package metier;
 
-class Document {
+abstract class Document {
 
 	private String titre;
 	private int nbPage;
-	private Type type;
 
 	private static int compteur = 0;
 
-	public Document(String titre, int nbPage, Type type) {
+	public Document(String titre, int nbPage) {
 
 		this.titre = titre;
 		this.nbPage = nbPage;
-		this.type = type;
 		compteur++;
 	}
 
@@ -20,25 +18,26 @@ class Document {
 		return compteur;
 	}
 
-	public String getTitre() {
+	public final String getTitre() {
 		return titre;
 	}
 
-	public void setTitre(String titre) {
+	public final void setTitre(String titre) {
 		this.titre = titre;
 	}
 
-	public int getNbPage() {
+	public final int getNbPage() {
 		return nbPage;
 	}
 
-	public void setNbPage(int nbPage) {
+	public final void setNbPage(int nbPage) {
 		this.nbPage = nbPage;
 	}
 
-	public String affiche() {
+	abstract public String affiche();
 
-		return "type: " + type + ", Nom: " + getTitre() + " " + "nbPage: " + getNbPage();
+	public String toString() {
+		return "titre: " + getTitre() + " " + ", nbPage: " + getNbPage();
 	}
 
 }

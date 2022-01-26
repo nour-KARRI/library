@@ -1,7 +1,7 @@
 package presentation;
 
 import metier.Bibliotheque;
-import metier.Type;
+import metier.Frequence;
 
 public class Principale {
 
@@ -9,13 +9,15 @@ public class Principale {
 
 		Bibliotheque bib = new Bibliotheque("BibNour");
 
-		bib.ajouterDocument("Sahih mouslim", 450, Type.LIVRE);
-		bib.ajouterDocument("Boulough Al Maram", 1235, Type.LIVRE);
-		bib.ajouterDocument("Ibn Kathir exegese", 2365, Type.LIVRE);
-		bib.ajouterDocument("Islah", 2365, Type.REVUE);
+		bib.ajouterDocument("Sahih mouslim", 450, "Mouslim");
+		bib.ajouterDocument("Boulough Al Maram", 1235, "Ibn Hajar");
+		bib.ajouterDocument("Ibn Kathir exegese", 2365, "Ibn Kathir");
+		bib.ajouterDocument("Islah", 2365, Frequence.MENSEUL);
 
 		bib.getCompteur();
-		System.out.println(bib.affiche());
+		for (int j = 0; j < bib.getCompteur(); j++) {
+			System.out.println(bib.getAt(j).affiche());
+		}
 
 	}
 

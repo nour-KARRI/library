@@ -1,6 +1,8 @@
 package metier;
 
-public class Bibliotheque {
+import interfaces.Affichable;
+
+public final class Bibliotheque {
 
 	private String nom;
 
@@ -15,8 +17,12 @@ public class Bibliotheque {
 		return Document.getCompteur();
 	}
 
-	public void ajouterDocument(String titre, int nbPage, Type type) {
-		lesDocs[nbDoc++] = new Document(titre, nbPage, type);
+	public void ajouterDocument(String titre, int nbPage, String auteur) {
+		lesDocs[nbDoc++] = new Livre(titre, nbPage, auteur);
+	}
+
+	public void ajouterDocument(String titre, int nbPage, Frequence frequence) {
+		lesDocs[nbDoc++] = new Revue(titre, nbPage, frequence);
 	}
 
 	public String affiche() {
@@ -26,6 +32,14 @@ public class Bibliotheque {
 		}
 		return ret;
 
+	}
+
+	public Affichable getAt(int j) {
+		Affichable ret = null;
+		if (lesDocs[j] instanceof Affichable) {
+			ret = (Affichable) lesDocs[j];
+		}
+		return ret;
 	}
 
 }
