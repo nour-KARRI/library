@@ -1,8 +1,6 @@
 package metier;
 
-import interfaces.Affichable;
-
-public class Revue extends Document implements Affichable {
+public class Revue extends Document {
 
 	private Frequence frequence;
 
@@ -26,7 +24,7 @@ public class Revue extends Document implements Affichable {
 	}
 
 	@Override
-	public String affiche() {
+	public String toString() {
 		return super.toString() + ", Frequence: " + getFrequence();
 	}
 

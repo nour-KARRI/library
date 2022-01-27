@@ -34,8 +34,7 @@ abstract class Document {
 		this.nbPage = nbPage;
 	}
 
-	abstract public String affiche();
-
+	@Override
 	public String toString() {
 		return "titre: " + getTitre() + " " + ", nbPage: " + getNbPage();
 	}

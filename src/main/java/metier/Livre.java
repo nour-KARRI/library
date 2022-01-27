@@ -1,8 +1,6 @@
 package metier;
 
-import interfaces.Affichable;
-
-public final class Livre extends Document implements Affichable {
+public final class Livre extends Document {
 
 	private String auteur;
 
@@ -28,7 +26,7 @@ public final class Livre extends Document implements Affichable {
 	}
 
 	@Override
-	public String affiche() {
+	public String toString() {
 		return super.toString() + ", Auteur: " + getAuteur();
 
 	}
