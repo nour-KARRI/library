@@ -21,7 +21,12 @@
 	</form>
 
 	</br>
-	<!-- test if -->
+	
+	<!-- 
+	*************************
+	TOUS LES SAVANTS
+	*************************
+	 -->
 
 	<c:if test="${tousLesSavants }">
 
@@ -59,7 +64,11 @@
 		</c:if>
 	</c:if>
 
-	<!-- Retrieve all books -->
+	<!-- 
+	*************************
+	TOUS LES LIVRES
+	*************************
+	 -->
 	<c:if test="${tousLesLivres }">
 		<img src="data:image/jpg;base64,${articalLivre.currentOeuvre.image}">
 		<p>${articalLivre.currentOeuvre.livres }</p>

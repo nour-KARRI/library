@@ -1,11 +1,14 @@
 package fr.koor.library.business;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -20,12 +23,14 @@ public class Oeuvres {
 	@JoinColumn(name = "idSavant", nullable = false)
 	private Savants savants;
 	private String livres;
-	private String image;
+	@Lob
+	@Basic(fetch = FetchType.LAZY)
+	private byte[] image;
 
 	public Oeuvres() {
 	}
 
-	public Oeuvres(int id, Savants savants, String livres, String image) {
+	public Oeuvres(int id, Savants savants, String livres, byte[] image) {
 		super();
 		this.id = id;
 		this.savants = savants;
@@ -50,17 +55,17 @@ public class Oeuvres {
 		this.livres = livres;
 	}
 
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
 	@Override
 	public String toString() {
 		return "Oeuvres [id=" + id + ", livres=" + livres + ", image=" + image + "]";
+	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
 	}
 
 }

@@ -54,7 +54,7 @@ public class AffichageTousLivre extends HttpServlet {
 		request.setAttribute("listLivres", listLivres);
 
 		// recuperer le nom du sheikh
-		String nom = dao.getNomSavant(savantId);
+		String nom = dao.getPrenomSavant(savantId);
 		request.setAttribute("nom", nom);
 		// if (id !=null) {}
 		request.getRequestDispatcher("/savants.jsp").forward(request, response);
